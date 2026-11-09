@@ -1,4 +1,4 @@
-# TaskTrack-API
+# TaskTrack-Service
 
 A small task manager with a REST API and a simple web UI. Add tasks, mark them done, delete them. Data is stored in SQLite and persisted in a Docker volume.
 
@@ -7,10 +7,10 @@ Python 3.12 · Flask · Gunicorn · SQLite · Docker (multi-stage) · Docker Com
 
 ## Run with Docker
 ```bash
-git clone https://github.com/Mohammed/TaskTrack-API.git
-cd TaskTrack-API
-docker build -t tasktrack-api .
-docker run -d --name tasktrack-api -p 5000:5000 -v tasks-data:/data tasktrack-api
+git clone https://github.com/Mohammed/TaskTrack-Service.git
+cd TaskTrack-Service
+docker build -t TaskTrack-Service .
+docker run -d --name TaskTrack-Service -p 5000:5000 -v tasks-data:/data TaskTrack-Service
 ```
 Or with Docker Compose: `docker compose up -d --build`
 Or with Make: `make build && make run`
@@ -27,9 +27,9 @@ curl http://localhost:5000/api/tasks
 
 ## Stop and clean up
 ```bash
-docker stop tasktrack-api && docker rm tasktrack-api   # or: docker compose down
+docker stop TaskTrack-Service && docker rm TaskTrack-Service   # or: docker compose down
 docker volume rm tasks-data                            # deletes saved data
-docker rmi tasktrack-api                               # removes the image
+docker rmi TaskTrack-Service                               # removes the image
 ```
 
 ## Configuration
