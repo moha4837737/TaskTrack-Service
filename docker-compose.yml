@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    container_name: tasktrack-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - tasks-data:/data
+    restart: unless-stopped
+
+volumes:
+  tasks-data:
