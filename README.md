@@ -7,10 +7,10 @@ Python 3.12 · Flask · Gunicorn · SQLite · Docker (multi-stage) · Docker Com
 
 ## Run with Docker
 ```bash
-git clone https://github.com/Mohammed/TaskTrack-Service.git
+git clone https://github.com/moha4837737/TaskTrack-Service.git
 cd TaskTrack-Service
-docker build -t TaskTrack-Service .
-docker run -d --name TaskTrack-Service -p 5000:5000 -v tasks-data:/data TaskTrack-Service
+docker build -t tasktrack-api .
+docker run -d --name tasktrack-api -p 5000:5000 -v tasks-data:/data tasktrack-api
 ```
 Or with Docker Compose: `docker compose up -d --build`
 Or with Make: `make build && make run`
@@ -27,9 +27,9 @@ curl http://localhost:5000/api/tasks
 
 ## Stop and clean up
 ```bash
-docker stop TaskTrack-Service && docker rm TaskTrack-Service   # or: docker compose down
+docker stop tasktrack-api && docker rm tasktrack-api   # or: docker compose down
 docker volume rm tasks-data                            # deletes saved data
-docker rmi TaskTrack-Service                               # removes the image
+docker rmi tasktrack-api                               # removes the image
 ```
 
 ## Configuration
@@ -46,6 +46,9 @@ docker rmi TaskTrack-Service                               # removes the image
 | POST | `/api/tasks` | Create task `{"title": "..."}` |
 | PUT | `/api/tasks/<id>` | Toggle done |
 | DELETE | `/api/tasks/<id>` | Delete task |
+
+## Screenshots
+See the [docs/screenshots](docs/screenshots) folder.
 
 ## Attribution
 Original project written from scratch for this assignment. No third-party code base was used.
